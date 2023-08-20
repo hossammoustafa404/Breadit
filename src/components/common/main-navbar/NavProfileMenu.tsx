@@ -25,10 +25,10 @@ const NavProfileMenu: FC<props> = ({ user, ...props }) => {
 
   return (
     <DropdownMenu {...props}>
-      <DropdownMenuTrigger>
+      <DropdownMenuTrigger className="outline-none">
         <UserAvatar image={user?.image as string} />
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent align="end">
         <DropdownMenuItem className="justify-center">
           <Button
             variant="ghost"
@@ -51,7 +51,7 @@ const NavProfileMenu: FC<props> = ({ user, ...props }) => {
         <DropdownMenuItem className="justify-center">
           <Button
             variant="ghost"
-            onClick={() => router.push("/create-community")}
+            onClick={() => router.push("/r/create-community")}
             className="h-0"
           >
             Create Community

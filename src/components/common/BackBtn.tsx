@@ -1,14 +1,24 @@
 "use client";
-import { Button } from "@components/ui/Button";
-import { ArrowLeft } from "lucide-react";
+import { Button, ButtonProps } from "@components/ui/Button";
+import { cn } from "@lib/utils";
+import { ChevronLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { FC } from "react";
 
-const BackBtn = () => {
+// Types
+interface props extends ButtonProps {}
+
+const BackBtn: FC<props> = ({ className, ...props }) => {
   const router = useRouter();
 
   return (
-    <Button variant={"ghost"} onClick={() => router.back()}>
-      <ArrowLeft />
+    <Button
+      variant={"ghost"}
+      onClick={() => router.back()}
+      className={cn(className)}
+      {...props}
+    >
+      <ChevronLeft />
     </Button>
   );
 };

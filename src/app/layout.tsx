@@ -5,6 +5,7 @@ import "@styles/globals.css";
 import { Inter } from "next/font/google";
 import { cn } from "@lib/utils";
 import { Toaster } from "@components/ui/toast/Toaster";
+import Providers from "@components/common/Providers";
 
 // Types
 interface props {
@@ -30,10 +31,12 @@ const RootLayout = ({ children }: props) => {
           inter.className
         )}
       >
-        <MainNavbar />
-        <main className="flex-1">{children}</main>
-        <MainFooter />
-        <Toaster />
+        <Providers>
+          <MainNavbar />
+          <main className="flex-1">{children}</main>
+          <MainFooter />
+          <Toaster />
+        </Providers>
       </body>
     </html>
   );

@@ -4,7 +4,7 @@ import { Button, ButtonProps } from "@components/ui/Button";
 import { FC, useState } from "react";
 import { signIn } from "next-auth/react";
 import { Icons } from "@components";
-import { useToast } from "@hooks/use-toast";
+import { useToast } from "@hooks/useToast";
 import { cn } from "@lib/utils";
 
 // Types

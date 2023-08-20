@@ -1,9 +1,9 @@
 import GoogleProvider from "next-auth/providers/google";
 import { getServerSession } from "next-auth/next";
 import { NextAuthOptions } from "next-auth";
-import User from "@server/models/userModel";
+import User from "@models/user";
 import connectDB from "./connectDB";
-import { UserModel } from "@server/types/models";
+import { UserModel } from "@types/api/models";
 import { nanoid } from "nanoid";
 
 const authOptions: NextAuthOptions = {

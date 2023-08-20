@@ -6,5 +6,8 @@ export { default as BackBtn } from "./common/BackBtn";
 export { default as Logo } from "./common/Logo";
 export { default as UserAvatar } from "./common/UserAvatar";
 
+// Home components
+export { default as CreateCommunityAction } from "./home/CreateCommunityAction";
+
 // sign-in components
 export { default as SignInBtn } from "./sign-in/SignInBtn";

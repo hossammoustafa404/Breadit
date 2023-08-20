@@ -2,13 +2,12 @@ import Link from "next/link";
 import { Logo } from "@components";
 import { cn } from "@lib/utils";
 import { buttonVariants } from "@components/ui/Button";
-import { getSession } from "@server/lib/nextAuth";
+import { getSession } from "@lib/api/nextAuth";
 import NavProfileMenu from "./NavProfileMenu";
 import { FC } from "react";
 
 const MainNavbar: FC = async () => {
   const session = await getSession();
-  console.log(session?.user);
 
   return (
     <nav className="sticky top-0 bg-white drop-shadow-sm py-4 mb-8">

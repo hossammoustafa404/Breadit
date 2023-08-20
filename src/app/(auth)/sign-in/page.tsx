@@ -1,7 +1,7 @@
 import { BackBtn, SignInBtn } from "@components";
 import { buttonVariants } from "@components/ui/Button";
 import { cn } from "@lib/utils";
-import { getSession } from "@server/lib/nextAuth";
+import { getSession } from "@lib/api/nextAuth";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { FC } from "react";
