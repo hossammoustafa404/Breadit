@@ -10,7 +10,7 @@ const MainNavbar: FC = async () => {
   const session = await getSession();
 
   return (
-    <nav className="sticky top-0 bg-white drop-shadow-sm py-4 mb-8">
+    <nav className="sticky top-0 bg-white drop-shadow-sm py-4 mb-8 z-20">
       <div className="container flex items-center justify-between">
         {/* Logo */}
         <Logo size="lg" />

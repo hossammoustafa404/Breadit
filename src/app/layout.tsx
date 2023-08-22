@@ -27,7 +27,7 @@ const RootLayout = ({ children }: props) => {
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen flex flex-col antialiased bg-slate-50",
+          "min-h-screen flex flex-col antialiased bg-slate-200",
           inter.className
         )}
       >

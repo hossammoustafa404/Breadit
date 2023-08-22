@@ -11,3 +11,6 @@ export { default as CreateCommunityAction } from "./home/CreateCommunityAction";
 
 // sign-in components
 export { default as SignInBtn } from "./sign-in/SignInBtn";
+
+// Subreddit components
+export { default as CommunityHeader } from "./subreddit/community-hero/CommunityHero";

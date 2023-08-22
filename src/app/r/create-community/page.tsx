@@ -38,7 +38,7 @@ const CreateCommunity = () => {
   const onSubmit = async (values: createCommunityValues) => {
     await createCommunity({
       ...values,
-      creator: session?.user?._id,
+      superAdmin: session?.user?._id as string,
     });
   };
 

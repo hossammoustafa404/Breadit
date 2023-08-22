@@ -7,10 +7,10 @@ const subscriptionSchema = new Schema(
       required: true,
       ref: "User",
     },
-    subreddit: {
+    community: {
       type: Types.ObjectId,
       required: true,
-      ref: "subreddit",
+      ref: "Community",
     },
   },
   { timestamps: true }

@@ -3,7 +3,6 @@ import { getServerSession } from "next-auth/next";
 import { NextAuthOptions } from "next-auth";
 import User from "@models/user";
 import connectDB from "./connectDB";
-import { UserModel } from "@types/api/models";
 import { nanoid } from "nanoid";
 
 const authOptions: NextAuthOptions = {
@@ -20,7 +19,7 @@ const authOptions: NextAuthOptions = {
     async session({ session }) {
       try {
         await connectDB();
-        const searchedUser: UserModel | null | undefined = await User.findOne({
+        const searchedUser: UserResponse | null = await User.findOne({
           email: session?.user?.email,
         });
 
@@ -46,7 +45,7 @@ const authOptions: NextAuthOptions = {
     async signIn({ user }) {
       try {
         await connectDB();
-        const searchedUser: UserModel | null | undefined = await User.findOne({
+        const searchedUser: UserResponse | null = await User.findOne({
           email: user.email,
         });
         if (!searchedUser) {

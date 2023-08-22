@@ -4,33 +4,33 @@ import { useMutation } from "react-query";
 import axios, { AxiosError } from "axios";
 import { useToast } from "@hooks/useToast";
 import { useRouter } from "next/navigation";
+import { StatusCodes } from "http-status-codes";
+import { createCommunityPayload } from "@lib/validators/forms/createCommunity";
 
-// Types
-
-const url = "/api/subreddits";
+const url = "/api/v1/communities";
 
 const useCreateCommunity = (setConflictTitle: any) => {
   const { toast } = useToast();
   const router = useRouter();
 
   return useMutation({
-    mutationFn: async (payload: object) => {
-      await axios.post(url, payload);
+    mutationFn: async (payload: createCommunityPayload) => {
+      const { data } = await axios.post(url, payload);
+      return data;
     },
     onError: (error: any) => {
       if (error instanceof AxiosError) {
-        if (error?.response?.status === 409) {
+        if (error?.response?.status === StatusCodes.CONFLICT) {
           setConflictTitle(() => true);
         }
       }
     },
-    onSuccess: (data) => {
-      console.log(data);
+    onSuccess: ({ community }: { community: CommunityResponse }) => {
       toast({
-        description: "Community has been created Successfully",
+        description: `${community.title} community has been created Successfully`,
         variant: "success",
       });
-      router.push("/");
+      router.push(`/r/${community.title}`);
     },
   });
 };

@@ -34,3 +34,17 @@ export class UnAuthorizedError extends AppError {
     super(message, StatusCodes.UNAUTHORIZED);
   }
 }
+
+// NotFound Error
+export class NotFoundError extends AppError {
+  constructor(public message: string) {
+    super(message, StatusCodes.NOT_FOUND);
+  }
+}
+
+// NotContent Error
+export class NoContentError extends AppError {
+  constructor(public message: string) {
+    super(message, StatusCodes.NO_CONTENT);
+  }
+}
