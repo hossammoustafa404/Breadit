@@ -1,6 +1,5 @@
 import { Schema, model, models, Types } from "mongoose";
 import Subscription from "./subscription";
-import User from "./user";
 
 const communitySchema = new Schema(
   {
@@ -12,7 +11,7 @@ const communitySchema = new Schema(
     superAdmin: {
       type: Types.ObjectId,
       required: true,
-      ref: User,
+      ref: "User",
     },
   },
   { timestamps: true, toJSON: { virtuals: true }, toObject: { virtuals: true } }

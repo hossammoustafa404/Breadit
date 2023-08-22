@@ -26,7 +26,7 @@ const MoreMenu: FC<props> = ({ currentUser, community, ...props }) => {
   const pathName = usePathname();
 
   const { mutateAsync: joinCommunity } = useJoinCommunity(
-    `/api/v1/communities/${community?.title}/subscriptions`
+    `/api/v1/subscriptions?community=${community?.title}`
   );
   // Join community handler
   const joinCommunityHandler = async () => {
@@ -34,7 +34,7 @@ const MoreMenu: FC<props> = ({ currentUser, community, ...props }) => {
   };
 
   const { mutateAsync: leaveCommunity } = useLeaveCommunity(
-    `/api/v1/communities/${community?.title}/subscriptions`
+    `/api/v1/subscriptions?community=${community?.title}`
   );
 
   // Leave community handler

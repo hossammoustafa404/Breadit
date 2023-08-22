@@ -1,4 +1,4 @@
-import { CommunityHeader } from "@components";
+import { CommunityHeader, FakeCreatePost } from "@components";
 import LittleInfoBox from "@components/subreddit/LittleInfoBox";
 import { getSession } from "@lib/api/nextAuth";
 import axios from "axios";
@@ -37,11 +37,15 @@ const Community: FC<props> = async ({ params: { slug } }) => {
       {/* Header */}
       <CommunityHeader community={community} />
 
-      <section className="flex gap-8 mt-6">
-        <aside className="basis-[30rem]">
+      <section className="flex flex-col lg:flex-row gap-8 lg:gap-16 mt-6">
+        <aside className="lg:basis-[23rem] xl:basis-[30rem]">
           <LittleInfoBox currentUser={session?.user} community={community} />
         </aside>
-        <section className="bg-blue-500 flex-1 h-[500vh]"></section>
+        <section className="flex-1">
+          {community?.subscriptions?.find(
+            (item) => item.user === session?.user?._id
+          ) && <FakeCreatePost />}
+        </section>
       </section>
     </div>
   );

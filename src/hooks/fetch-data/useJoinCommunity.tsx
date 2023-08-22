@@ -17,10 +17,10 @@ const useJoinCommunity = (url: string) => {
     onError: (error: any) => {
       throw error;
     },
-    onSuccess: ({ subscription }: { subscription: any }) => {
+    onSuccess: () => {
       toast({
-        title: `Welcome ${subscription?.user?.name}`,
-        description: `You have joined ${subscription?.community?.title} community Successfully`,
+        title: `Welcome`,
+        description: `You have joined the community Successfully`,
         variant: "success",
       });
       router.refresh();

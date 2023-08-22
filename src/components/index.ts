@@ -8,6 +8,8 @@ export { default as UserAvatar } from "./common/UserAvatar";
 
 // Home components
 export { default as CreateCommunityAction } from "./home/CreateCommunityAction";
+export { default as MyCommunities } from "./home/MyCommunities";
+export { default as FakeCreatePost } from "./subreddit/FakeCreatePost";
 
 // sign-in components
 export { default as SignInBtn } from "./sign-in/SignInBtn";
