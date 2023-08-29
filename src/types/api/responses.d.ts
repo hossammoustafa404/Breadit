@@ -25,13 +25,25 @@ interface CommunityResponse {
   _id: string;
   title: string;
   superAdmin: UserModel;
-  subscriptions?: {
+  subscriptions: {
     _id: string;
     user: UserModel;
     createdAt: Date;
     updatedAt: Date;
     _v: number;
   }[];
+  createdAt: Date;
+  updatedAt: Date;
+  _v: number;
+}
+
+// Post Response
+interface PostResponse {
+  _id: string;
+  title: string;
+  content: any;
+  author: UserResponse;
+  community: CommunityResponse;
   createdAt: Date;
   updatedAt: Date;
   _v: number;

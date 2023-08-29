@@ -1,6 +1,6 @@
 "use client";
 
-import { useMutation } from "react-query";
+import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useToast } from "@hooks/useToast";
 import { useRouter } from "next/navigation";
@@ -10,6 +10,7 @@ const useJoinCommunity = (url: string) => {
   const router = useRouter();
 
   return useMutation({
+    mutationKey: ["join-community"],
     mutationFn: async () => {
       const { data } = await axios.post(url);
       return data;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMutation } from "react-query";
+import { useMutation } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
 import { useToast } from "@hooks/useToast";
 import { useRouter } from "next/navigation";

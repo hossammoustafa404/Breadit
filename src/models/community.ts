@@ -1,5 +1,6 @@
 import { Schema, model, models, Types } from "mongoose";
 import Subscription from "./subscription";
+import Post from "./post";
 
 const communitySchema = new Schema(
   {
@@ -19,6 +20,12 @@ const communitySchema = new Schema(
 
 communitySchema.virtual("subscriptions", {
   ref: Subscription,
+  localField: "_id",
+  foreignField: "community",
+});
+
+communitySchema.virtual("posts", {
+  ref: Post,
   localField: "_id",
   foreignField: "community",
 });

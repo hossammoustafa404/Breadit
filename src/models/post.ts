@@ -1,4 +1,6 @@
+import { Type } from "lucide-react";
 import { Schema, Types, model, models } from "mongoose";
+import { json } from "node:stream/consumers";
 
 const postSchema = new Schema(
   {
@@ -7,8 +9,8 @@ const postSchema = new Schema(
       required: true,
     },
     content: {
-      type: String,
-      required: true,
+      type: Object,
+      // required: true,
     },
     author: {
       type: Types.ObjectId,
@@ -23,6 +25,7 @@ const postSchema = new Schema(
   },
   { timestamps: true }
 );
+
 
 const Post = models?.Post || model("Post", postSchema);
 

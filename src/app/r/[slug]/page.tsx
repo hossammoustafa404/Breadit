@@ -1,10 +1,9 @@
 import { CommunityHeader, FakeCreatePost } from "@components";
+import Feed from "@components/subreddit/Feed";
 import LittleInfoBox from "@components/subreddit/LittleInfoBox";
 import { getSession } from "@lib/api/nextAuth";
-import axios from "axios";
-import { StatusCodes } from "http-status-codes";
+import getCommunity from "@lib/fetch-data/getCommunity";
 
-import { notFound } from "next/navigation";
 import { FC } from "react";
 
 // Types
@@ -16,21 +15,8 @@ interface props {
 
 const Community: FC<props> = async ({ params: { slug } }) => {
   const session = await getSession();
-  let community: CommunityResponse | null = null;
 
-  try {
-    const { data, status } = await axios(
-      `http://localhost:3000/api/v1/communities/${slug}`
-    );
-
-    community = data.community;
-
-    if (status === StatusCodes.NO_CONTENT) {
-      return notFound();
-    }
-  } catch (error) {
-    console.log(error);
-  }
+  const { community } = await getCommunity(slug);
 
   return (
     <div className="container -translate-y-[2rem]">
@@ -43,8 +29,9 @@ const Community: FC<props> = async ({ params: { slug } }) => {
         </aside>
         <section className="flex-1">
           {community?.subscriptions?.find(
-            (item) => item.user === session?.user?._id
+            (item: any) => item.user === session?.user?._id
           ) && <FakeCreatePost />}
+          <Feed community={community} className="mt-6" />
         </section>
       </section>
     </div>
